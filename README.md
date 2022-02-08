@@ -12,7 +12,8 @@ docker run --rm -it \
 ## Run from github container
 
 ```
-docker run --rm -it \
+docker run -d \
     -v "$(pwd)/aussiebb.json:/home/useruser/.config/aussiebb.json" \
-    ghcr.io/yaleman/aussiebb-outage-watcher
+    --name outagewatcher --restart always \
+    ghcr.io/yaleman/aussiebb-outage-watcher:latest
 ```
