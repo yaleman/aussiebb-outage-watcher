@@ -12,8 +12,7 @@ docker run --rm -it \
 ## Run from github container
 
 ```
-docker build -t aussiebb-outage-watcher . 
 docker run --rm -it \
-    -v "./aussiebb.json:/home/useruser/.config/aussiebb.json" \
+    -v "$(pwd)/aussiebb.json:/home/useruser/.config/aussiebb.json" \
     ghcr.io/yaleman/aussiebb-outage-watcher
 ```
