@@ -1,0 +1,5 @@
+[DEFAULT]
+extension-pkg-whitelist=pydantic
+load-plugins=pylint_pydantic
+
+max-line-length=200

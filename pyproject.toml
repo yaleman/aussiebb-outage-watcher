@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyaussiebb = {git = "https://github.com/yaleman/pyaussiebb", rev = "outages"}
+pydantic = "^1.9.0"
+schedule = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.12.2"
+pytest = "^7.0.0"
+black = "^22.1.0"
+mypy = "^0.931"
+pylint-pydantic = "^0.1.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
