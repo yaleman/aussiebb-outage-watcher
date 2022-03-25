@@ -28,11 +28,6 @@ RUN chown useruser /build -R
 WORKDIR /build/
 USER useruser
 
-RUN git clone https://github.com/yaleman/pyaussiebb.git
-RUN git -C pyaussiebb checkout outages
-RUN python -m pip install --quiet poetry pytest
-
-RUN python -m pip install --quiet ./pyaussiebb
-RUN python -m pip install --quiet --upgrade .
+RUN python -m pip install --quiet poetry pytest pyaussiebb
 
 CMD python -m app
