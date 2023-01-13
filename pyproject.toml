@@ -18,7 +18,7 @@ rev = "outages"
 [tool.poetry.dev-dependencies]
 pylint = "^2.12.2"
 pytest = "^7.0.0"
-black = "^22.1.0"
+black = "^22.12.0"
 mypy = "^0.931"
 pylint-pydantic = "^0.1.4"
 
