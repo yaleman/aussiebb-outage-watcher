@@ -19,7 +19,7 @@ rev = "outages"
 pylint = "^2.16.1"
 pytest = "^7.2.1"
 black = "^23.1.0"
-mypy = "^0.931"
+mypy = "^1.0"
 pylint-pydantic = "^0.1.6"
 
 [build-system]
