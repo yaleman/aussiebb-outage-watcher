@@ -20,7 +20,7 @@ pylint = "^2.16.3"
 pytest = "^7.2.1"
 black = "^23.1.0"
 mypy = "^1.0"
-pylint-pydantic = "^0.1.6"
+pylint-pydantic = "^0.1.7"
 
 [build-system]
 requires = [
