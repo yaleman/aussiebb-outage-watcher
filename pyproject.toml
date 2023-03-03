@@ -16,7 +16,7 @@ git = "https://github.com/yaleman/pyaussiebb"
 rev = "outages"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.16.2"
+pylint = "^2.16.3"
 pytest = "^7.2.1"
 black = "^23.1.0"
 mypy = "^1.0"
