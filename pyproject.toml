@@ -9,7 +9,7 @@ authors = [
 [tool.poetry.dependencies]
 python = "^3.9"
 pydantic = "^1.10.7"
-schedule = "^1.1.0"
+schedule = "^1.2.0"
 
 [tool.poetry.dependencies.pyaussiebb]
 git = "https://github.com/yaleman/pyaussiebb"
