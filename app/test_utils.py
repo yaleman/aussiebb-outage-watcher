@@ -6,12 +6,12 @@ from pathlib import Path
 
 import pytest
 
-# from aussiebb import AussieBB
-from aussiebb.types import AussieBBConfigFile
+from aussiebb.types import AussieBBConfigFile  # type: ignore
+
 
 def configloader() -> AussieBBConfigFile:
-    """ loads config """
-    for filename in [ os.path.expanduser("~/.config/aussiebb.json"), "aussiebb.json" ]:
+    """loads config"""
+    for filename in [os.path.expanduser("~/.config/aussiebb.json"), "aussiebb.json"]:
         filepath = Path(filename).resolve()
         if filepath.exists():
             try:

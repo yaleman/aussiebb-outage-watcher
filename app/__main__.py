@@ -15,22 +15,26 @@ It needs at least one user in the "users" field. eg:
 """
 
 import json
-from time import sleep, time
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+from time import sleep
 
 import schedule
-from aussiebb import AussieBB
-from aussiebb.types import AussieBBConfigFile, AussieBBOutage
+from aussiebb import AussieBB  # type: ignore
+from aussiebb.types import AussieBBConfigFile, AussieBBOutage  # type: ignore
 
 from .test_utils import configloader
 
 
-
-def test_login_cycle():
-    """ do the needful """
+def test_login_cycle() -> None:
+    """do the needful"""
 
     config: AussieBBConfigFile = configloader()
-    users = [ AussieBB(username=user.username, password=user.password) for user in config.users ][:1]
-
+    users = [
+        AussieBB(username=user.username, password=user.password)
+        for user in config.users
+    ][:1]
 
     for user in users:
         try:
@@ -43,14 +47,16 @@ def test_login_cycle():
             try:
                 outages = user.service_outages(service["service_id"])
             except Exception as error_message:
-                print(f"Failed to run get_services({service['service_id']}): {error_message}")
+                print(
+                    f"Failed to run get_services({service['service_id']}): {error_message}"
+                )
                 continue
 
             data = {
-                "_time" : time(),
+                "_time": datetime.now(ZoneInfo("UTC")).isoformat(),
             }
             try:
-                parsed_obj = AussieBBOutage.parse_obj(outages).dict()
+                parsed_obj = AussieBBOutage.model_validate(outages).model_dump()
             except Exception as error_message:
                 print(f"Failed to parse into AussieBBOutage object: {error_message}")
                 print(json.dumps(outages, default=str))
@@ -60,7 +66,6 @@ def test_login_cycle():
 
 
 if __name__ == "__main__":
-
     test_login_cycle()
 
     try:
