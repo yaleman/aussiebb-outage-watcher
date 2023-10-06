@@ -734,13 +734,13 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pyaussiebb"
-version = "0.1.2"
+version = "0.1.3"
 description = "Aussie Broadband API module"
 optional = false
 python-versions = ">=3.9,<4.0"
 files = [
-    {file = "pyaussiebb-0.1.2-py3-none-any.whl", hash = "sha256:7b97a1ff102b821a2d9fd368f1350b252ec7ec193545bae0bd80576498b4d153"},
-    {file = "pyaussiebb-0.1.2.tar.gz", hash = "sha256:63280ced89d75200cb62f8afcfe682b0efdc53e47f02cb6a1705f978bc7f83bd"},
+    {file = "pyaussiebb-0.1.3-py3-none-any.whl", hash = "sha256:f3017792e507ed99e626e0fdfdcf545fde60fd6fcda2215554796eac6aab264c"},
+    {file = "pyaussiebb-0.1.3.tar.gz", hash = "sha256:eb403d7fd89971b7426fde247de3a91cf36e3eda92ccbf7ebe3fc6009009c284"},
 ]
 
 [package.dependencies]
@@ -1246,4 +1246,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1a6cfb088fc46d88ad2d73d7da557d3819aa165556226e91b0abaa60e3b8168a"
+content-hash = "df1e3bc052a707ec15071853559a5af3e0d160035bce5ffa02a3212d7723d3b8"
