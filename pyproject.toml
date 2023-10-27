@@ -13,7 +13,7 @@ pyaussiebb = "0.1.3"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.1"
 mypy = "^1.6.1"
-black = "^23.10.0"
+black = "^23.10.1"
 pytest = "^7.4.2"
 pylint-pydantic = "^0.3.0"
 
