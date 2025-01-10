@@ -869,13 +869,13 @@ files = [
 
 [[package]]
 name = "pyaussiebb"
-version = "0.1.4"
+version = "0.1.5"
 description = "Aussie Broadband API module"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "pyaussiebb-0.1.4-py3-none-any.whl", hash = "sha256:5464d9baf05d6a9de76970563c2629faf82ffb25ddbdc8b8aede8012d141aa5a"},
-    {file = "pyaussiebb-0.1.4.tar.gz", hash = "sha256:f3fafa2ef7599eb79b9a6a7fe72d3b3d79360917b57e7e56e26ac7eaca6f11b8"},
+    {file = "pyaussiebb-0.1.5-py3-none-any.whl", hash = "sha256:31588ae21bbd8d89e9f2eedd6a3ab073dac572dfd2216c3ffbdd1154324568a6"},
+    {file = "pyaussiebb-0.1.5.tar.gz", hash = "sha256:7e0cf5d47749e338352f7cc4af3856d0e839dbc501e3cc0a7d40e4f40e438226"},
 ]
 
 [package.dependencies]
@@ -1389,4 +1389,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d06b7dfa5bc12dfd58f8a21a25adf2d62993c17f1b3b49e0a2cee892c1162283"
+content-hash = "5407171c960ca1539a16e9c78782bd1c80fe83393c321967924984fc88a3d9f7"
