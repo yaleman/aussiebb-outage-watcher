@@ -6,7 +6,7 @@ authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pydantic = "^2.11.3"
+pydantic = "^2.11.4"
 schedule = "^1.2.2"
 pyaussiebb = "0.1.5"
 
