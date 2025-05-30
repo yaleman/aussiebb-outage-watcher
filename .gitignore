@@ -8,3 +8,8 @@ config.py
 dist/
 .env
 build/
+
+.envrc
+*.asc
+*.pyc
+.venv

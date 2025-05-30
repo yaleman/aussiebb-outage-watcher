@@ -1,31 +1,30 @@
-[tool.poetry]
-name = "app"
-version = "0.1.0"
-description = ""
-authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-pydantic = "^2.11.5"
-schedule = "^1.2.2"
-pyaussiebb = "0.1.6"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.12"
-mypy = "^1.16.0"
-black = "^25.1.0"
-pytest = "^8.3.5"
-pylint-pydantic = "^0.3.5"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [project]
-name = "app"
-version = "0.1.0"
+name = "aussiebb_outage_watcher"
+version = "0.2.0"
 authors = [{ name = "James Hodgkinson", email = "james@terminaloutcomes.com" }]
-description = "silly container thing"
+description = ""
+requires-python = "<4.0,>=3.10"
+dependencies = [
+    "pydantic>=2.11.5",
+ "schedule>=1.2.2",
+ "pyaussiebb==0.1.6",
+]
+
+[project.scripts]
+"aussiebb-outage-watcher" = "aussiebb_outage_watcher.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 200
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.12",
+    "mypy>=1.16.0",
+    "pytest>=8.3.5",
+    "pylint-pydantic>=0.3.5",
+]

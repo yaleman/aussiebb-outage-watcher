@@ -1,5 +1,4 @@
-FROM python:3.11-slim
-# FROM python:3.10-alpine
+FROM python:3.13-slim
 
 ########################################
 # add a user so we're not running as root
@@ -14,20 +13,22 @@ RUN apt-get clean
 RUN mkdir -p /home/useruser/.config/
 RUN chown useruser /home/useruser -R
 
-RUN mkdir -p build/app
+RUN mkdir -p build/aussiebb_outage_watcher
 
 WORKDIR /build
 
-COPY app/ /build/app
+COPY aussiebb_outage_watcher/* /build/aussiebb_outage_watcher
 
-COPY poetry.lock .
+COPY uv.lock .
 COPY pyproject.toml .
 
 RUN chown useruser /build -R
 WORKDIR /build/
 USER useruser
 
-RUN python -m pip install --quiet poetry pytest pyaussiebb
+RUN python -m pip install --no-cache --quiet uv
 RUN pip install .
 
-CMD python -m app
+WORKDIR /home/useruser
+
+CMD [".local/bin/aussiebb-outage-watcher"]

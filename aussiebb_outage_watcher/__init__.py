@@ -1,12 +1,12 @@
-""" test utils """
+"""test utils"""
 
 import json
 import os
 from pathlib import Path
+import sys
 
-import pytest
 
-from aussiebb.types import AussieBBConfigFile  # type: ignore
+from aussiebb.types import AussieBBConfigFile
 
 
 def configloader() -> AussieBBConfigFile:
@@ -18,7 +18,5 @@ def configloader() -> AussieBBConfigFile:
                 configfile = AussieBBConfigFile.parse_file(filepath)
                 return configfile
             except json.JSONDecodeError as json_error:
-                pytest.exit(f"Failed to parse config file: {json_error}")
-    return AussieBBConfigFile()
-
-    # TODO: add a validator that checks that either a user or a list of them is supplied
+                sys.exit(f"Failed to parse config file: {json_error}")
+    return AussieBBConfigFile.model_validate({"users": []})
