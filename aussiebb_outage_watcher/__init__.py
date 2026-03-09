@@ -15,7 +15,8 @@ def configloader() -> AussieBBConfigFile:
         filepath = Path(filename).resolve()
         if filepath.exists():
             try:
-                configfile = AussieBBConfigFile.parse_file(filepath)
+                contents = filepath.read_text(encoding="utf-8")
+                configfile = AussieBBConfigFile.model_validate_json(contents)
                 return configfile
             except json.JSONDecodeError as json_error:
                 sys.exit(f"Failed to parse config file: {json_error}")

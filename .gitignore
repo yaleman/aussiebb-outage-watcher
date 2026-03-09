@@ -13,3 +13,4 @@ build/
 *.asc
 *.pyc
 .venv
+.coverage
