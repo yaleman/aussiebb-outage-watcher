@@ -104,6 +104,29 @@ def test_configloader_reads_local_config(monkeypatch: pytest.MonkeyPatch, tmp_pa
     assert config.users[0].password.get_secret_value() == "hunter2"
 
 
+def test_configloader_exits_on_json_decode_error(
+    monkeypatch: pytest.MonkeyPatch, tmp_path
+) -> None:
+    home_dir = tmp_path / "home"
+    home_dir.mkdir()
+    config_path = tmp_path / "aussiebb.json"
+    config_path.write_text("{}")
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("HOME", str(home_dir))
+    monkeypatch.setattr(
+        "aussiebb_outage_watcher.AussieBBConfigFile.model_validate_json",
+        lambda _contents: (_ for _ in ()).throw(
+            json.JSONDecodeError("Expecting value", "{}", 0)
+        ),
+    )
+
+    with pytest.raises(SystemExit) as excinfo:
+        configloader()
+
+    assert str(excinfo.value) == "Failed to parse config file: Expecting value: line 1 column 1 (char 0)"
+
+
 def test_do_the_thing_prints_outage_json(capsys: pytest.CaptureFixture[str]) -> None:
     do_the_thing([FakeUser()])
 
