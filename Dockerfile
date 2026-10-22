@@ -21,6 +21,7 @@ COPY aussiebb_outage_watcher/* /build/aussiebb_outage_watcher
 
 COPY uv.lock .
 COPY pyproject.toml .
+COPY README.md .
 
 RUN chown useruser /build -R
 WORKDIR /build/
