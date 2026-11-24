@@ -15,12 +15,10 @@ It needs at least one user in the "users" field. eg:
 """
 
 import json
-from datetime import datetime
 import sys
-from typing import List
-from zoneinfo import ZoneInfo
-
+from datetime import datetime
 from time import sleep
+from zoneinfo import ZoneInfo
 
 import schedule
 from aussiebb import AussieBB
@@ -29,13 +27,13 @@ from aussiebb.types import AussieBBConfigFile, AussieBBOutage
 from aussiebb_outage_watcher import configloader
 
 
-def do_the_thing(users: List[AussieBB]) -> None:
+def do_the_thing(users: list[AussieBB]) -> None:
     """do the needful"""
 
     for user in users:
         try:
             services = user.get_services(use_cached=True)
-        except Exception as error_message:
+        except Exception as error_message:  # noqa: BLE001
             print(f"Failed to run get_services: {error_message}")
             return
         if services is None:
@@ -44,7 +42,7 @@ def do_the_thing(users: List[AussieBB]) -> None:
         for service in services:
             try:
                 outages = user.service_outages(service["service_id"])
-            except Exception as error_message:
+            except Exception as error_message:  # noqa: BLE001
                 print(f"Failed to run get_services({service['service_id']}): {error_message}")
                 continue
 
@@ -54,7 +52,7 @@ def do_the_thing(users: List[AussieBB]) -> None:
             }
             try:
                 parsed_obj = AussieBBOutage.model_validate(outages).model_dump()
-            except Exception as error_message:
+            except Exception as error_message:  # noqa: BLE001
                 print(f"Failed to parse into AussieBBOutage object: {error_message}")
                 print(json.dumps(outages, default=str))
                 continue
@@ -78,7 +76,7 @@ def main() -> None:
             sleep(5)
     except KeyboardInterrupt:
         pass
-    except Exception:
+    except Exception:  # noqa: BLE001
         print("well, that failed.")
         sleep(30)
 

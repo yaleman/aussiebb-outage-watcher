@@ -8,7 +8,7 @@ name: ty
   pull_request:
 
 jobs:
-  mypy:
+  mypy: # don't rename, used for branch rules
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

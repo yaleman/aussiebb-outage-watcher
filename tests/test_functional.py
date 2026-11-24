@@ -1,11 +1,11 @@
-from typing import Optional, List, Dict, Any
-from aussiebb import AussieBB
 import json
 import os
 import subprocess
 import sys
+from typing import Any
 
 import pytest
+from aussiebb import AussieBB
 from aussiebb.types import AussieBBConfigFile
 
 from aussiebb_outage_watcher import configloader
@@ -51,9 +51,9 @@ class FakeUser(AussieBB):
         self,
         page: int = 1,
         use_cached: bool = False,
-        servicetypes: Optional[List[str]] = None,
-        drop_types: Optional[List[str]] = None,
-    ) -> Optional[List[Dict[str, Any]]]:
+        servicetypes: list[str] | None = None,
+        drop_types: list[str] | None = None,
+    ) -> list[dict[str, Any]] | None:
         del use_cached
         if self._services_error is not None:
             raise self._services_error
