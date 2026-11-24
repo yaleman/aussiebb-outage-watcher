@@ -2,9 +2,8 @@
 
 import json
 import os
-from pathlib import Path
 import sys
-
+from pathlib import Path
 
 from aussiebb.types import AussieBBConfigFile
 
