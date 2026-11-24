@@ -3,7 +3,7 @@
 ## Build and run
 
 ```shell
-make container
+mise run docker
 docker run --rm -it \
     -v "$HOME/.config/aussiebb.json:/home/useruser/.config/aussiebb.json" \
     ghcr.io/yaleman/aussiebb-outage-watcher:latest
